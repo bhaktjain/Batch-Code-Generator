@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batch Code</title>
+</head>
+<body>
+    <h3>Generate Batch Code</h3>
+    <form method="post" action="/batchcode">
+        <b>Center:</b>
+        <select name="centers">
+        {{#each centers as |c|}}
+        
+            <option value="{{c.id}}">{{c.name}}</option>
+        
+        {{/each}}
+        </select >
+        <br>
+        <b>Season:</b>
+        <select name="seasons">
+        {{#each Seasons as |s|}}
+        
+            <option value="{{s.id}}">{{s.name}}</option>
+        
+        {{/each}}
+        </select>
+        <br>
+        <b>Course:</b>
+        <select name="courses">
+        {{#each courses as |cour|}}
+        
+            <option value="{{cour.id}}">{{cour.name}}</option>
+        
+        {{/each}}
+        </select>
+        <br>
+        <b>Year:</b>
+        <select name="years">
+        {{#each years as |yrs|}}
+        
+            <option>{{yrs}}</option>
+        
+        {{/each}}
+        </select>
+        <br>
+        <b>Batch Number:</b>
+        
+        <input name="batchNum" type="number" min="0" max="5">
+        <b>Start Date</b>
+        <input name="startDate"   type="date">
+        <b>End Date</b>
+        <input name="endDate"   type="date">
+        <br>
+        <input type="submit" text="Submit">
+        <br>
+        <span name="batchCode">BatchCode:{{batchcode}}</span>
+        
+        
+    </form>
+    <button onClick="window.location.reload()">Refresh Page</button>
+    <br>
+    
+</body>
+</html>
